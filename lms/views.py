@@ -6,22 +6,7 @@ from django.shortcuts import render_to_response
 from models import *
 
 
-	
-def add_book(request):
-	if request.POST:
-		post = request.POST
-		newbook=book(
-			isbn = post["isbn"],
-			title = post["title"],
-    		author = author.objects.get_or_create(name = post["name"])[0],
-    		publisher = post["publisher"],
-    		publishdate = post["publishdate"],
-    		price = post["price"],
-            )
-		newbook.save()
 
-		return HttpResponseRedirect("/")  
-	return render_to_response("add_book.html")
 
 
 def update_book(request, uisbn = 1):
